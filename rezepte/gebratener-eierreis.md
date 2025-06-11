@@ -1,4 +1,4 @@
-# Asiatischer Gebratener Reis mit Gemüse
+# Gebratener Eierreis mit Gemüse
 
 **Ergibt:** ca. 2-3 Portionen
 **Vorbereitungszeit:** 15 Minuten
