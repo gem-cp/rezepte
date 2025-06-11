@@ -1,5 +1,6 @@
 # Palak Paneer
 
+![Palak Paneer](images/palak-paneer.png)
 (Cremiger Spinat mit indischem Frischkäse)
 
 - [Palak Paneer](#palak-paneer)
