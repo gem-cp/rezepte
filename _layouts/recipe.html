@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<article class="recipe">
+  <h1>{{ page.title }}</h1>
+
+  {% if page.image and page.image != "" %}
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="recipe-image">
+  {% else %}
+    <img src="https://source.unsplash.com/800x400/?{{ page.title | url_encode }},food,recipe" alt="Placeholder image for {{ page.title | escape }}" class="recipe-image">
+  {% endif %}
+
+  <section class="recipe-meta">
+    {% if page.prep_time %}
+      <p><strong>Prep time:</strong> {{ page.prep_time }}</p>
+    {% endif %}
+    {% if page.cook_time %}
+      <p><strong>Cook time:</strong> {{ page.cook_time }}</p>
+    {% endif %}
+    {% if page.portions %}
+      <p><strong>Portions:</strong> {{ page.portions }}</p>
+    {% endif %}
+  </section>
+
+  {% if page.ingredients %}
+  <section class="ingredients">
+    <h2>Ingredients</h2>
+    <ul>
+      {% for ingredient in page.ingredients %}
+        <li>{{ ingredient }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <section class="instructions">
+    <h2>Instructions</h2>
+    {{ content }}
+  </section>
+
+</article>
