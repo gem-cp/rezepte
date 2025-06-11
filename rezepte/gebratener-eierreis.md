@@ -1,5 +1,7 @@
 # Gebratener Eierreis mit Gemüse
 
+![Gebratener Eierreis](images/gebratener-eierreis.png)
+
 **Ergibt:** ca. 2-3 Portionen
 **Vorbereitungszeit:** 15 Minuten
 **Kochzeit:** 10-15 Minuten
