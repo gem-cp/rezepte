@@ -1,0 +1,28 @@
+---
+layout: default
+title: Our Recipes
+---
+<h1>Recipe Collection</h1>
+
+<div class="recipe-list">
+  {% if site.recipes.size > 0 %}
+    {% for recipe in site.recipes %}
+      <div class="recipe-card">
+        <h2><a href="{{ recipe.url | relative_url }}">{{ recipe.title | escape }}</a></h2>
+        {% if recipe.image and recipe.image != "" %}
+          <a href="{{ recipe.url | relative_url }}">
+            <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title | escape }}" style="max-width: 200px; height: auto;">
+          </a>
+        {% else %}
+          <a href="{{ recipe.url | relative_url }}">
+            <img src="https://source.unsplash.com/400x200/?{{ recipe.title | url_encode }},food,recipe" alt="Placeholder image for {{ recipe.title | escape }}" style="max-width: 200px; height: auto;">
+          </a>
+        {% endif %}
+        <p>{{ recipe.excerpt | strip_html | truncatewords: 20 }}</p>
+        <a href="{{ recipe.url | relative_url }}">Read more</a>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No recipes found yet. Stay tuned!</p>
+  {% endif %}
+</div>

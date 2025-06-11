@@ -1,0 +1,11 @@
+title: My Awesome Recipe Site
+description: A collection of delicious recipes.
+theme: minima
+plugins:
+  - github-pages
+  - jekyll-feed
+
+collections:
+  recipes:
+    output: true
+    permalink: /recipes/:path/
