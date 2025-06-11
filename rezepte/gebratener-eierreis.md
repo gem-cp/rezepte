@@ -1,4 +1,4 @@
-Okay, hier ist ein einfaches und leckeres Rezept für asiatischen gebratenen Reis mit Gemüse. Das Wichtigste für guten gebratenen Reis ist # Asiatischer Gebratener Reis mit Gemüse
+# Asiatischer Gebratener Reis mit Gemüse
 
 **Ergibt:** ca. 2-3 Portionen
 **Vorbereitungszeit:** 15 Minuten
