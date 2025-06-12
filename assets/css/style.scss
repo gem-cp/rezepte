@@ -351,7 +351,7 @@ header {
     strong, b {
         font-weight: bold; // Default bold is usually 700, Open Sans 600 is semi-bold
         color: darken($text-color, 10%); // Updated color
-    }
+    } // Added closing brace
     ul, ol {
       margin-bottom: 1em;
       li {
