@@ -1,0 +1,440 @@
+---
+---
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+// Variables - New Cooking Theme
+$primary-color: #D2691E; // Terracotta (Chocolate in CSS terms)
+$secondary-color: #DAA520; // Muted Gold (Goldenrod)
+$text-color: #5C4033;    // Dark Brown (VeryDarkBrown - custom)
+$background-color: #FAF0E6; // Light Cream (Linen)
+$card-background: #ffffff; // White
+$border-color: #e0d8cf; // Soft, light warm gray (Seashell-ish or lighter Parchment)
+
+$header-background: $primary-color;
+$header-text-color: #ffffff;
+$link-color: darken($primary-color, 10%); // Darker terracotta for links
+$link-hover-color: darken($primary-color, 20%);
+
+// Font stacks - New Cooking Theme
+$font-family-serif: 'Domine', "Georgia", "Times New Roman", Times, serif; // For headings
+$font-family-sans-serif: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; // For body
+
+
+// Basic Reset (remains the same)
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Global Styles
+body {
+  font-family: $font-family-sans-serif; // Updated font
+  line-height: 1.65;
+  background-color: $background-color; // Updated color
+  color: $text-color; // Updated color
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px 15px;
+  flex-grow: 1;
+}
+
+main {
+  flex-grow: 1;
+}
+
+a {
+  color: $link-color; // Updated color
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: $link-hover-color; // Updated color
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-serif; // Updated font
+  margin-bottom: 0.75em;
+  line-height: 1.3;
+  color: $primary-color; // Headings now use primary color for more impact
+}
+
+h1 { font-size: 2.5em; } // Slightly larger for the new theme
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1em; }
+h6 { font-size: 0.875em; }
+
+
+p {
+  margin-bottom: 1em;
+}
+
+ul, ol {
+  padding-left: 20px;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.25em;
+}
+
+// Header
+header {
+  background-color: $header-background; // Updated color
+  color: $header-text-color; // Updated color
+  padding: 1.5em 0;
+  margin-bottom: 2em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); // Subtle shadow for depth
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  h1 { // Site Title in Header
+    margin-bottom: 0.5em;
+    font-size: 2em; // Adjust size for header context
+    color: $header-text-color; // Ensure it uses header text color
+    a {
+      color: $header-text-color; // Updated color
+      text-decoration: none;
+      &:hover {
+        color: darken($header-text-color, 10%);
+      }
+    }
+  }
+}
+
+// Search Styling
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input#search-input {
+    padding: 0.75em;
+    width: 100%;
+    border: 1px solid $border-color; // Updated color
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: $font-family-sans-serif; // Ensure consistent font
+    color: $text-color;
+    background-color: $card-background;
+    &:focus {
+      outline: none;
+      border-color: $secondary-color; // Use secondary for focus
+      box-shadow: 0 0 0 0.2rem rgba($secondary-color, 0.25);
+    }
+  }
+
+  ul#search-results {
+    list-style-type: none;
+    background: $card-background; // Updated color
+    border: 1px solid $border-color; // Updated color
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    max-height: 400px;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0;
+    margin:0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: none;
+
+    li {
+      padding: 0.75em 1em;
+      border-bottom: 1px solid $border-color; // Updated color
+      margin-bottom: 0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: $link-color; // Updated color
+        font-weight: bold; // Keep bold for titles
+        display: block;
+        &:hover {
+          color: $link-hover-color; // Updated color
+        }
+      }
+      small {
+        color: lighten($text-color, 25%); // Lighter text for excerpts
+        display: block;
+        font-size: 0.85em;
+        margin-top: 0.25em;
+      }
+    }
+  }
+}
+
+// Recipe Index Page
+.recipe-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.recipe-card {
+  background: $card-background; // Updated color
+  border: 1px solid $border-color; // Updated color
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(82, 63, 51, 0.08); // Softer shadow with a hint of text color
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(82, 63, 51, 0.12);
+    transform: translateY(-3px);
+  }
+
+  h2 { // Card Title
+    font-size: 1.6em; // Adjusted size
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: $primary-color; // Ensure it uses primary color
+    a {
+      color: inherit; // Inherit color from h2
+      text-decoration: none;
+    }
+  }
+  img, .recipe-card-image-placeholder {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: darken($background-color, 5%); // Darker placeholder bg
+  }
+  p { // Excerpt
+    font-size: 0.9em;
+    color: lighten($text-color, 15%); // Updated color
+    margin-bottom: 1em;
+  }
+  a:last-of-type { // "Read more" link
+    display: inline-block;
+    font-weight: bold;
+    color: $secondary-color; // Use secondary for accent
+    &:hover {
+      color: darken($secondary-color, 10%);
+    }
+  }
+}
+
+// Recipe Detail Page
+.recipe {
+  background: $card-background; // Updated color
+  padding: 30px; // More padding for detail page
+  border: 1px solid $border-color; // Updated color
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(82, 63, 51, 0.08);
+
+  h1 { // Main Recipe Title on Detail Page
+    font-size: 2.8em; // Larger for main title
+    color: $primary-color;
+    margin-bottom: 0.5em;
+    text-align: center; // Center the main title
+  }
+
+  .recipe-image {
+    width: 100%;
+    max-height: 450px; // Slightly more height for main recipe image
+    object-fit: cover;
+    border-radius: 8px; // More rounded corners
+    margin-bottom: 1.5em;
+    border: 3px solid $border-color; // Optional border around image
+  }
+
+  .recipe-meta {
+    margin-bottom: 1.5em;
+    padding: 1em;
+    border-radius: 5px;
+    background-color: darken($background-color, 3%); // Slightly different bg for meta
+    border-bottom: 1px solid $border-color; // Updated color
+    p {
+      margin-bottom: 0.5em;
+      font-size: 0.95em;
+      color: $text-color; // Updated color
+      strong {
+        color: $primary-color; // Use primary color for emphasis
+      }
+    }
+  }
+
+  .ingredients, .instructions {
+    margin-bottom: 1.5em;
+    h2 { // Section Headings like "Ingredients", "Instructions"
+      font-size: 1.8em; // Adjusted size
+      color: $primary-color; // Use primary color
+      border-bottom: 2px solid $secondary-color; // Use secondary for underline
+      padding-bottom: 0.3em;
+      margin-bottom: 0.75em;
+    }
+  }
+
+  .ingredients ul {
+    list-style-type: none;
+    padding-left: 0;
+    li {
+      padding: 0.6em 0; // Slightly more padding
+      border-bottom: 1px dashed $border-color; // Dashed border, updated color
+      font-size: 1em;
+      color: $text-color; // Updated color
+      &:before {
+        content: "🌿"; // Changed custom bullet to a leaf
+        color: $secondary-color; // Use secondary for bullet
+        font-weight: normal; // Keep it light
+        margin-right: 10px;
+        font-size: 1.1em;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  // Styling for headings within the main recipe content ({{ content }})
+  .instructions {
+    h1,h2,h3,h4,h5,h6 {
+        font-family: $font-family-serif; // Consistent with other headings
+        color: $primary-color; // Use primary color
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-top: 1.5em; // Add space above content headings
+        margin-bottom: 0.5em;
+    }
+    // Make content headings subordinate to the main page title (which is H1)
+    // and section titles (Ingredients/Instructions, which are H2)
+     h1 { font-size: 1.6em; } // An H1 in content becomes like a strong H3
+     h2 { font-size: 1.4em; } // An H2 in content becomes like an H4
+     h3 { font-size: 1.2em; } // An H3 in content becomes like an H5
+     h4, h5, h6 { font-size: 1em; }
+
+
+    p, li {
+      line-height: 1.7;
+      color: $text-color; // Updated color
+      font-size: 1em; // Ensure body text size
+    }
+    strong, b {
+        font-weight: bold; // Default bold is usually 700, Open Sans 600 is semi-bold
+        color: darken($text-color, 10%); // Updated color
+    } // Closing brace is correctly here
+    ul, ol {
+      margin-bottom: 1em;
+      li {
+        margin-bottom: 0.5em;
+        // Could add custom bullets for lists within instructions too if desired
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+  text-align: center;
+  padding: 2em 0;
+  margin-top: 2em;
+  background-color: darken($background-color, 5%); // Updated color
+  border-top: 1px solid $border-color; // Updated color
+  p {
+    margin: 0;
+    font-size: 0.9em;
+    color: lighten($text-color, 20%); // Updated color
+  }
+}
+
+// Responsive Design (mostly adjustments to new sizes, existing structure is fine)
+@media (max-width: 992px) {
+  .container {
+    width: 95%;
+  }
+  .recipe h1 { font-size: 2.4em; } // Adjust main recipe title
+}
+
+@media (max-width: 768px) {
+  header h1 a {
+    font-size: 1.7em; // Adjust header site title
+  }
+  .search-container input#search-input {
+    font-size: 0.9em;
+  }
+  .recipe-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  .recipe-card, .recipe {
+    padding: 15px;
+  }
+  h1 { font-size: 2.2em; } // Global H1
+  h2 { font-size: 1.8em; } // Global H2
+  .recipe h1 { font-size: 2em; } // Main recipe title on detail
+  .recipe .instructions h1 { font-size: 1.5em; } // H1 within content
+  .recipe .instructions h2 { font-size: 1.3em; } // H2 within content
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  header {
+    padding: 1em 0;
+    margin-bottom: 1.5em;
+  }
+  header h1 a {
+    font-size: 1.5em;
+  }
+
+  .recipe-list {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .recipe-card img, .recipe-card-image-placeholder {
+    height: 160px;
+  }
+  .recipe .recipe-image {
+    max-height: 300px;
+  }
+  .recipe h1 { font-size: 1.8em; } // Main recipe title on detail (mobile)
+  .recipe .instructions h1 { font-size: 1.4em; } // H1 within content (mobile)
+  .recipe .instructions h2 { font-size: 1.2em; } // H2 within content (mobile)
+
+  footer {
+    padding: 1.5em 0;
+    margin-top: 1.5em;
+  }
+}
+```
